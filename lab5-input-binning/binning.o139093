@@ -1,0 +1,10 @@
+
+Setting up the problem...0.004498 s
+    Grid size = 10000
+    Input size = 200000
+Allocating device variables...1.286834 s
+Copying data from host to device...0.001156 s
+Launching kernel (GPU with cuttoff)...0.235591 s
+Copying data from device to host...0.000063 s
+Verifying results...TEST PASSED
+

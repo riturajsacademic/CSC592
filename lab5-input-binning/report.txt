@@ -1,0 +1,41 @@
+
+QUESTION:
+
+Try running all four implementations using varying input combinations. Use at least 5 different combinations. Try scaling the number of input elements and the grid size differently having both low, both high, one low and one high, etc. Comment on the performance impact of each mode for the various input sizes. Explain why you think certain implementations perform better than others for various input combinations. In modes 4 and 5, make sure to also include the preprocessing time in your comparison, not just the kernel launch time.
+
+OBSERVATIONS:
+1. 10000*10000
+CPU: 0.822753
+GPU Normal: 0.013540
+GPU cutoff: 0.010257
+GP CPU Binning: 0.009877
+GPU Binning: 0.000096 + 0.009773 = 0.016148
+
+2. 60000*100000
+CPU: 49.277893
+GPU Normal: 0.602749
+GPU cutoff: 0.565489
+GP CPU Binning: 0.072671
+GPU Binning: 0.000281 + 0.073576 = 0.073
+
+
+3. 100000*20000
+CPU: 16.461252
+GPU Normal: 0.200245
+GPU cutoff: 0.17958
+GP CPU Binning:0.019443
+GPU Binning:0.000115 + 0.019216 = 0.23204
+
+4. 10000 * 200000
+CPU: 16.455772
+GPU Normal: 0.266836
+GPU cutoff: 0.235591
+GP CPU Binning: 0.179361
+GPU Binning: 0.000479+ 0.179494 = 0.1499
+
+Answers:
+
+We see that CPU normal has a higher runtime as we increase the number of inputs. GPU normal on the other hands has a very less runtime. GPU with cutoff implements cutoff without binning and shows that the runtime decreases compared to GPU normal as the cutoff includes additional overhead but sometimes stops threads from running some implementations. The GPU Binning on the other hand shows drastic improvements with big datasets and higher grid sizes. This is because that threads run less points that they would have without input binning.
+
+
+

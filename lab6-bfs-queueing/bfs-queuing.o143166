@@ -1,0 +1,13 @@
+
+Setting up the problem...0.181366 s
+    # Nodes = 500000
+    Max neighbors per node = 50
+Allocating device variables...1.295720 s
+Copying data from host to device...0.033694 s
+Launching kernel (GPU with block and global queuing)...0.009326 s
+Copying data from device to host...0.002842 s
+Verifying results...
+    Comparing number of nodes generated...TEST PASSED
+    Comparing nodes visited...TEST PASSED
+    Comparing nodes enqueued...TEST PASSED
+

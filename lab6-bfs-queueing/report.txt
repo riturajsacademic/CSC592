@@ -1,0 +1,75 @@
+
+QUESTION:
+
+Try running all four implementations using varying input sizes. Compare the performance and scalability of each implementation. Explain why you think each implementation performs better or worse than the one before it.
+
+
+ANSWER:
+
+
+Mode 		Nodes		Max Neighbours 		Time
+1			100,000			5				0.000633 s
+2			100,000			5				0.000493 s
+3			100,000			5				0.000149 s
+1			100,000			10				0.001087 s
+2			100,000			10				0.000935 s
+3			100,000			10				0.000270 s
+1			100,000			20				0.002106 s
+2			100,000			20				0.001458 s
+3			100,000			20				0.000715 s
+1			100,000			50				0.003421 s
+2			100,000			50				0.002206 s
+3			100,000			50				0.001537 s
+#######################################################
+1			300,000			5				0.004256 s
+2			300,000			5				0.001404 s
+3			300,000			5				0.000387 s
+1			300,000			10				0.006347 s
+2			300,000			10				0.002340 s
+3			300,000			10				0.001000 s
+1			300,000			20				0.008758 s
+2			300,000			20				0.004011 s
+3			300,000			20				0.002220 s
+1			300,000			50				0.012179 s
+2			300,000			50				0.006383 s
+3			300,000			50				0.005079 s
+#######################################################
+1			500,000			5				0.008695 s
+2			500,000			5				0.002256 s
+3			500,000			5				0.000861 s
+1			500,000			10				0.012173 s
+2			500,000			10				0.004089 s
+3			500,000			10				0.002503 s
+1			500,000			20				0.016371 s
+2			500,000			20				0.006626 s
+3			500,000			20				0.004756 s
+1			500,000			50				0.022683 s
+2			500,000			50				0.010749 s
+3			500,000			50				0.009325 s
+
+
+Conclusions:
+
+Sequential Execution: As one node is processed in this CPU sequential execution. The runtime is bound to me large. 
+
+GPU with Global Queue: As we are using the global queue thus decreasing the DRAM bandwidth and making the reading and writing to global involves more time for reading and writing thus increases the contention, increasing the runtime.
+
+GPU with Block and Global Queue: Trick here is top reduce the write contention in Global Ram. This further decreases the runtime which can be seen in the results. This for the same input sequential is 0.016 with GPU is 0.006 and 0.004 for Block and Global queueing techniques.
+
+Only one queue interacts with pointers to make the writing to global memory sequential and rest write to global memory in parallel. Thus reducing the runtime.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
